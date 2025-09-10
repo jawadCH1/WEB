@@ -1,50 +1,33 @@
-:root {
-  --bg: #f6f8fa !important;
-  --text: #24313a !important;
-  --cell-empty: #e0e3ea !important;
-  --cell-1: #a0c4ff !important;
-  --cell-2: #bdb2ff !important;
-  --cell-3: #ffc6ff !important;
-  --cell-4: #fdffb6 !important;
-  --accent-yellow: #ffd670 !important;
-  --accent-green: #b7e4c7 !important;
-  --accent-pink: #ffafcc !important;
-}
-body {background: var(--bg) !important;color: var(--text) !important;}
-.github-calendar, .container {background: var(--bg) !important;color: var(--text) !important;}
-button {
-  background: var(--accent-pink) !important;
-  color: var(--text) !important;
-  border: 1.5px solid var(--accent-yellow) !important;
-}
-button.download {
-  background: var(--accent-green) !important;
-  color: #24313a !important;
-  border: 1.5px solid var(--accent-green) !important;
-}
-button.star {
-  border: 1.5px solid var(--accent-yellow) !important;
-  color: var(--accent-yellow) !important;
-  background: transparent !important;
-}
-input, select {background: #fff !important;color: var(--text) !important;}
-.color-scale, .day-labels, .month-labels, .calendar-heading {color: #535c68 !important;}
-.cell {background: var(--cell-empty) !important;}
-.cell.cell-1 {background: var(--cell-1) !important;}
-.cell.cell-2 {background: var(--cell-2) !important;}
-.cell.cell-3 {background: var(--cell-3) !important;}
-.cell.cell-4 {background: var(--cell-4) !important;}
-.color-button.level-1 {background: var(--cell-1) !important;}
-.color-button.level-2 {background: var(--cell-2) !important;}
-.color-button.level-3 {background: var(--cell-3) !important;}
-.color-button.level-4 {background: var(--cell-4) !important;}
-.color-button.empty {background: var(--cell-empty) !important;}
-footer {color: #a5adb8 !important;}
 body {
-  /* Gradient background from red to blue, covering the whole website */
-  background: linear-gradient(135deg, #ff2a2a, #2a5cff);
+  /* Gradient background from red (top left) to blue (bottom right) */
+  background: linear-gradient(135deg, #ff2a2a 0%, #2a5cff 100%);
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* Optional: make sure content doesn't overlap background */
+  background-attachment: fixed;
 }
 
-/* Existing styles below (jika ada, biarkan tidak diubah) */
-/* ... */
+/* --- Existing styles (biarkan tetap, jangan dihapus, tambahkan saja di bawah atau atas) --- */
+
+/* Example, your actual file may have more rules: */
+.container {
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  padding: 24px;
+  margin: 32px auto;
+  max-width: 800px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+}
+
+.instructions,
+.preset-container,
+.input-container,
+.github-calendar,
+.button-row,
+.color-selectors,
+footer {
+  margin-bottom: 16px;
+}
+
+/* ... (biarkan style lama tetap, jangan dihapus) ... */
