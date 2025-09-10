@@ -19,265 +19,61 @@ const presetSelect = document.getElementById('presetSelect');
 let selectedLevel = 4;
 let isDragging = false;
 
+// Hanya preset yang diminta!
 const presets = {
-  smile: [
-    [3,2,4],[3,4,4],[4,1,4],[4,5,4],[5,1,4],[5,5,4],[6,2,4],[6,4,4],[4,3,2],[5,3,2],
-  ],
-  heart: [
-    [2,1,4],[2,2,4],[2,4,4],[2,5,4],[3,0,4],[3,3,4],[3,6,4],[4,1,4],[4,5,4],[5,2,4],[5,4,4],[6,3,4],
-  ],
-  hi: [
-    [2,1,4],[2,2,4],[2,3,4],[2,5,4],[2,6,4],[3,2,4],[3,4,4],[4,1,4],[4,2,4],[4,3,4],[4,4,4],[4,5,4]
-  ],
-  checker: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)for(let d=0;d<numDays;d++)
-      if((w+d)%2===0)arr.push([w,d,2]); return arr;
-  },
-  diagonal: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)for(let d=0;d<numDays;d++)
-      if(w===d)arr.push([w,d,3]); return arr;
-  },
-  border: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)for(let d=0;d<numDays;d++)
-      if(w===0||w===numWeeks-1||d===0||d===numDays-1)arr.push([w,d,2]); return arr;
-  },
-  zigzag: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)for(let d=0;d<numDays;d++)
-      if((w%2===0&&d%2===0)||(w%2===1&&d%2===1))arr.push([w,d,3]); return arr;
-  },
-  x: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)for(let d=0;d<numDays;d++)
-      if(w===d||w===numDays-1-d)arr.push([w,d,4]); return arr;
-  },
-  o: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)for(let d=0;d<numDays;d++)
-      if((w>0&&w<numWeeks-1&&d>0&&d<numDays-1)&&!(w===1&&d===1)&&!(w===numWeeks-2&&d===numDays-2))arr.push([w,d,2]);
-    for(let w=0;w<numWeeks;w++) arr.push([w,0,4],[w,numDays-1,4]);
-    for(let d=0;d<numDays;d++) arr.push([0,d,4],[numWeeks-1,d,4]);
+  // FULL HIJAU 2 COMMIT per kotak
+  fullgreen2: function(numWeeks, numDays){
+    let arr=[]; 
+    for(let w=0;w<numWeeks;w++)
+      for(let d=0;d<numDays;d++)
+        arr.push([w,d,2]);
     return arr;
   },
-  half: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)for(let d=0;d<numDays;d++)
-      if(d>3)arr.push([w,d,3]); return arr;
+
+  // Pola acak 1-10, maksimal 230 kotak, setiap kotak 1 commit (level=1)
+  random1: function(numWeeks, numDays){
+    let arr=[]; let set = new Set();
+    while (arr.length < 230) {
+      let w = Math.floor(Math.random() * numWeeks);
+      let d = Math.floor(Math.random() * numDays);
+      let key = w + '-' + d;
+      if (!set.has(key)) {
+        arr.push([w,d,1]);
+        set.add(key);
+      }
+    }
+    return arr;
   },
-  fullgreen1: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)for(let d=0;d<numDays;d++)
-      arr.push([w,d,1]); return arr;
-  },
-  fullgreen4: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)for(let d=0;d<numDays;d++)
-      arr.push([w,d,4]); return arr;
-  },
-  random: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)for(let d=0;d<numDays;d++)
-      if(Math.random()>0.6)arr.push([w,d,Math.floor(Math.random()*5)]); return arr;
-  },
-  // BATIK 1: zigzag selang seling level 1
+  random2: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
+  random3: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
+  random4: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
+  random5: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
+  random6: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
+  random7: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
+  random8: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
+  random9: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
+  random10: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
+
+  // Batik 1, 2, 3
   batik1: function(numWeeks, numDays){
     let arr=[]; for(let d=0;d<numDays;d++)
       for(let w=0;w<numWeeks;w++)
         if((w+d%2)%2===0)arr.push([w,d,1]);
     return arr;
   },
-  // BATIK 2: diagonal zigzag
   batik2: function(numWeeks, numDays){
     let arr=[]; for(let w=0;w<numWeeks;w++)
       for(let d=0;d<numDays;d++)
         if((w-d)%4===0||(w+d)%4===0)arr.push([w,d,1]);
     return arr;
   },
-  // BATIK 3: wave
   batik3: function(numWeeks, numDays){
     let arr=[]; for(let w=0;w<numWeeks;w++)
       for(let d=0;d<numDays;d++)
         if(((w+Math.floor(d/2))%4===0))arr.push([w,d,2]);
         else if(((w+Math.floor(d/2))%4===1))arr.push([w,d,1]);
     return arr;
-  },
-  // STAIRCASE: tangga naik
-  stairs: function(numWeeks, numDays){
-    let arr=[]; for(let w=0;w<numWeeks;w++)
-      for(let d=0;d<numDays;d++)
-        if(w===d||w===d-1||w===d+1)arr.push([w,d,4]);
-    return arr;
-  },
-  // ARROW: bentuk panah kanan
-  arrow: function(numWeeks, numDays){
-    let arr=[]; 
-    let mid = Math.floor(numDays/2);
-    for(let w=0;w<numWeeks;w++) arr.push([w,mid,4]);
-    for(let i=-2;i<=2;i++) arr.push([numWeeks-1,mid+i,4]);
-    arr.push([numWeeks-2,mid-1,4],[numWeeks-2,mid+1,4]);
-    arr.push([numWeeks-3,mid-2,4],[numWeeks-3,mid+2,4]);
-    return arr;
-  },
-  // DIAMOND (ketupat)
-  diamond: function(numWeeks, numDays){
-    let arr=[]; let midw=Math.floor(numWeeks/2), midd=Math.floor(numDays/2);
-    for(let w=0;w<numWeeks;w++)
-      for(let d=0;d<numDays;d++)
-        if(Math.abs(w-midw)+Math.abs(d-midd)<=Math.min(midw,midd))
-          arr.push([w,d,3]);
-    return arr;
-  },
-  // PLUS
-  plus: function(numWeeks, numDays){
-    let arr=[]; let midw=Math.floor(numWeeks/2), midd=Math.floor(numDays/2);
-    for(let w=0;w<numWeeks;w++) arr.push([w,midd,4]);
-    for(let d=0;d<numDays;d++) arr.push([midw,d,4]);
-    return arr;
-  },
-  // TETRIS L
-  tetris: function(numWeeks, numDays){
-    let arr=[]; 
-    for(let w=0;w<3&&w<numWeeks;w++) arr.push([w,0,4]);
-    for(let d=0;d<3&&d<numDays;d++) arr.push([2,d,4]);
-    return arr;
-  },
-
-  // ==============================
-  // Acak pola random1 sampai random10: maksimal 230 kotak, setiap kotak 1 commit (level=1)
-  random1: function(numWeeks, numDays){
-    let arr=[]; 
-    let set = new Set();
-    while (arr.length < 230) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        arr.push([w,d,1]);
-        set.add(key);
-      }
-    }
-    return arr;
-  },
-  random2: function(numWeeks, numDays){
-    let arr=[]; 
-    let set = new Set();
-    while (arr.length < 230) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        arr.push([w,d,1]);
-        set.add(key);
-      }
-    }
-    return arr;
-  },
-  random3: function(numWeeks, numDays){
-    let arr=[]; 
-    let set = new Set();
-    while (arr.length < 230) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        arr.push([w,d,1]);
-        set.add(key);
-      }
-    }
-    return arr;
-  },
-  random4: function(numWeeks, numDays){
-    let arr=[]; 
-    let set = new Set();
-    while (arr.length < 230) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        arr.push([w,d,1]);
-        set.add(key);
-      }
-    }
-    return arr;
-  },
-  random5: function(numWeeks, numDays){
-    let arr=[]; 
-    let set = new Set();
-    while (arr.length < 230) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        arr.push([w,d,1]);
-        set.add(key);
-      }
-    }
-    return arr;
-  },
-  random6: function(numWeeks, numDays){
-    let arr=[]; 
-    let set = new Set();
-    while (arr.length < 230) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        arr.push([w,d,1]);
-        set.add(key);
-      }
-    }
-    return arr;
-  },
-  random7: function(numWeeks, numDays){
-    let arr=[]; 
-    let set = new Set();
-    while (arr.length < 230) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        arr.push([w,d,1]);
-        set.add(key);
-      }
-    }
-    return arr;
-  },
-  random8: function(numWeeks, numDays){
-    let arr=[]; 
-    let set = new Set();
-    while (arr.length < 230) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        arr.push([w,d,1]);
-        set.add(key);
-      }
-    }
-    return arr;
-  },
-  random9: function(numWeeks, numDays){
-    let arr=[]; 
-    let set = new Set();
-    while (arr.length < 230) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        arr.push([w,d,1]);
-        set.add(key);
-      }
-    }
-    return arr;
-  },
-  random10: function(numWeeks, numDays){
-    let arr=[]; 
-    let set = new Set();
-    while (arr.length < 230) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        arr.push([w,d,1]);
-        set.add(key);
-      }
-    }
-    return arr;
   }
-  // ==============================
 };
 
 presetSelect.addEventListener('change', () => {
