@@ -136,27 +136,16 @@ const presets = {
   },
 
   // ==============================
-  // Tambahan random1 sampai random10
+  // Acak pola random1 sampai random10: maksimal 230 kotak, setiap kotak 1 commit (level=1)
   random1: function(numWeeks, numDays){
     let arr=[]; 
     let set = new Set();
-    while (arr.length < 250) {
+    while (arr.length < 230) {
       let w = Math.floor(Math.random() * numWeeks);
       let d = Math.floor(Math.random() * numDays);
       let key = w + '-' + d;
       if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
-        set.add(key);
-      }
-    }
-    while (arr.length < 310) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
+        arr.push([w,d,1]);
         set.add(key);
       }
     }
@@ -165,23 +154,12 @@ const presets = {
   random2: function(numWeeks, numDays){
     let arr=[]; 
     let set = new Set();
-    while (arr.length < 250) {
+    while (arr.length < 230) {
       let w = Math.floor(Math.random() * numWeeks);
       let d = Math.floor(Math.random() * numDays);
       let key = w + '-' + d;
       if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
-        set.add(key);
-      }
-    }
-    while (arr.length < 310) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
+        arr.push([w,d,1]);
         set.add(key);
       }
     }
@@ -190,23 +168,12 @@ const presets = {
   random3: function(numWeeks, numDays){
     let arr=[]; 
     let set = new Set();
-    while (arr.length < 250) {
+    while (arr.length < 230) {
       let w = Math.floor(Math.random() * numWeeks);
       let d = Math.floor(Math.random() * numDays);
       let key = w + '-' + d;
       if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
-        set.add(key);
-      }
-    }
-    while (arr.length < 310) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
+        arr.push([w,d,1]);
         set.add(key);
       }
     }
@@ -215,23 +182,12 @@ const presets = {
   random4: function(numWeeks, numDays){
     let arr=[]; 
     let set = new Set();
-    while (arr.length < 250) {
+    while (arr.length < 230) {
       let w = Math.floor(Math.random() * numWeeks);
       let d = Math.floor(Math.random() * numDays);
       let key = w + '-' + d;
       if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
-        set.add(key);
-      }
-    }
-    while (arr.length < 310) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
+        arr.push([w,d,1]);
         set.add(key);
       }
     }
@@ -240,23 +196,12 @@ const presets = {
   random5: function(numWeeks, numDays){
     let arr=[]; 
     let set = new Set();
-    while (arr.length < 250) {
+    while (arr.length < 230) {
       let w = Math.floor(Math.random() * numWeeks);
       let d = Math.floor(Math.random() * numDays);
       let key = w + '-' + d;
       if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
-        set.add(key);
-      }
-    }
-    while (arr.length < 310) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
+        arr.push([w,d,1]);
         set.add(key);
       }
     }
@@ -265,23 +210,12 @@ const presets = {
   random6: function(numWeeks, numDays){
     let arr=[]; 
     let set = new Set();
-    while (arr.length < 250) {
+    while (arr.length < 230) {
       let w = Math.floor(Math.random() * numWeeks);
       let d = Math.floor(Math.random() * numDays);
       let key = w + '-' + d;
       if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
-        set.add(key);
-      }
-    }
-    while (arr.length < 310) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
+        arr.push([w,d,1]);
         set.add(key);
       }
     }
@@ -290,23 +224,12 @@ const presets = {
   random7: function(numWeeks, numDays){
     let arr=[]; 
     let set = new Set();
-    while (arr.length < 250) {
+    while (arr.length < 230) {
       let w = Math.floor(Math.random() * numWeeks);
       let d = Math.floor(Math.random() * numDays);
       let key = w + '-' + d;
       if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
-        set.add(key);
-      }
-    }
-    while (arr.length < 310) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
+        arr.push([w,d,1]);
         set.add(key);
       }
     }
@@ -315,23 +238,12 @@ const presets = {
   random8: function(numWeeks, numDays){
     let arr=[]; 
     let set = new Set();
-    while (arr.length < 250) {
+    while (arr.length < 230) {
       let w = Math.floor(Math.random() * numWeeks);
       let d = Math.floor(Math.random() * numDays);
       let key = w + '-' + d;
       if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
-        set.add(key);
-      }
-    }
-    while (arr.length < 310) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
+        arr.push([w,d,1]);
         set.add(key);
       }
     }
@@ -340,23 +252,12 @@ const presets = {
   random9: function(numWeeks, numDays){
     let arr=[]; 
     let set = new Set();
-    while (arr.length < 250) {
+    while (arr.length < 230) {
       let w = Math.floor(Math.random() * numWeeks);
       let d = Math.floor(Math.random() * numDays);
       let key = w + '-' + d;
       if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
-        set.add(key);
-      }
-    }
-    while (arr.length < 310) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
+        arr.push([w,d,1]);
         set.add(key);
       }
     }
@@ -365,23 +266,12 @@ const presets = {
   random10: function(numWeeks, numDays){
     let arr=[]; 
     let set = new Set();
-    while (arr.length < 250) {
+    while (arr.length < 230) {
       let w = Math.floor(Math.random() * numWeeks);
       let d = Math.floor(Math.random() * numDays);
       let key = w + '-' + d;
       if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
-        set.add(key);
-      }
-    }
-    while (arr.length < 310) {
-      let w = Math.floor(Math.random() * numWeeks);
-      let d = Math.floor(Math.random() * numDays);
-      let key = w + '-' + d;
-      if (!set.has(key)) {
-        let level = Math.floor(Math.random() * 4) + 1;
-        arr.push([w,d,level]);
+        arr.push([w,d,1]);
         set.add(key);
       }
     }
