@@ -19,9 +19,16 @@ const presetSelect = document.getElementById('presetSelect');
 let selectedLevel = 4;
 let isDragging = false;
 
-// Hanya preset yang diminta!
 const presets = {
-  // FULL HIJAU 2 COMMIT per kotak
+  // Full Hijau 1 Commit: semua kotak level 1
+  fullgreen1: function(numWeeks, numDays){
+    let arr=[]; 
+    for(let w=0;w<numWeeks;w++)
+      for(let d=0;d<numDays;d++)
+        arr.push([w,d,1]);
+    return arr;
+  },
+  // Full Hijau 2 Commit: semua kotak level 2
   fullgreen2: function(numWeeks, numDays){
     let arr=[]; 
     for(let w=0;w<numWeeks;w++)
@@ -29,7 +36,6 @@ const presets = {
         arr.push([w,d,2]);
     return arr;
   },
-
   // Pola acak 1-10, maksimal 230 kotak, setiap kotak 1 commit (level=1)
   random1: function(numWeeks, numDays){
     let arr=[]; let set = new Set();
@@ -53,7 +59,6 @@ const presets = {
   random8: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
   random9: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
   random10: function(numWeeks, numDays){ let arr=[],set=new Set(); while(arr.length<230){let w=Math.floor(Math.random()*numWeeks);let d=Math.floor(Math.random()*numDays);let key=w+'-'+d;if(!set.has(key)){arr.push([w,d,1]);set.add(key);}} return arr; },
-
   // Batik 1, 2, 3
   batik1: function(numWeeks, numDays){
     let arr=[]; for(let d=0;d<numDays;d++)
