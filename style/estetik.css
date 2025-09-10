@@ -40,3 +40,11 @@ input, select {background: #fff !important;color: var(--text) !important;}
 .color-button.level-4 {background: var(--cell-4) !important;}
 .color-button.empty {background: var(--cell-empty) !important;}
 footer {color: #a5adb8 !important;}
+body {
+  /* Gradient background from red to blue, covering the whole website */
+  background: linear-gradient(135deg, #ff2a2a, #2a5cff);
+  min-height: 100vh;
+}
+
+/* Existing styles below (jika ada, biarkan tidak diubah) */
+/* ... */
